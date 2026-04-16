@@ -1,0 +1,61 @@
+<%- include('layout/hedar.ejs') %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 mx-auto mt-4">
+      <form action="/update/<%= user._id %>" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="name" class="form-label">name</label>
+          <input
+            type="text"
+            value="<%= user.name %>"
+            name="name"
+            class="form-control"
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+           <div id="emailHelp" class="form-text">
+            
+          </div>
+          <label for="exampleInputEmail1" class="form-label"
+            >Description</label
+          >
+          <input
+            type="text"
+            value="<%= user.description %>"
+            name="description"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" class="form-text">
+            
+          </div>
+        
+        
+          <label for="exampleInputPassword1" class="form-label">price</label>
+          <input
+            type="text"
+            value="<%= user.price %>"
+            name="price"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+
+           <label for="image" class="form-label">Image</label>
+          <input
+            type="file"
+            value="<%= user.image %>"
+            name="image"
+            class="form-control"
+            id="image"
+          />
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('layout/footr.ejs') %>

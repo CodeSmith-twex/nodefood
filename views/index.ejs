@@ -1,0 +1,48 @@
+<%- include('./layout/hedar.ejs') %>
+<div class="container mt-5">
+  <h1>Welcome to the Food App</h1>
+  <p>This is the home page.</p>
+  <div class="lop d-flex flex-wrap gap-3 justify-content-center">
+    <% if (foods !="") { %>
+          <table class="table table-striped w-100" >
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Image</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+    
+                        <tbody>
+                            <% foods.forEach((item,index) => { %>
+                             
+                                <tr class="align-middle">
+                                    <td><%= index + 1 %></td>
+                                    <td><%= item.name %></td>
+                                    <td><%= item.description %></td>
+                                    <td><%= item.price %></td>
+                                    <td><img src="../uploads/<%= item.image %>" alt="" width="50"></td>
+                                    <td>
+                                        <a href="edit/<%= item.id %>" class="text-success"><i class="fas fa-edit fa-lg mx-1"></i></a>
+                                        <a href="delete/<%= item.id %>" class="text-danger"><i class="fas fa-trash fa-lg mx-1"></i></a>
+                                        
+                                        
+                                    </td>
+                                </tr>
+                            <% }) %>
+                           
+                        </tbody>
+                    </table>
+        
+    <% } else {%>
+                    <h1 class="text-center mt-4">No foods found.</h1>
+                <% } %>
+
+   
+  </div>
+</div>
+
+<%- include('./layout/footr.ejs') %>

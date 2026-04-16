@@ -1,0 +1,29 @@
+<%- include('./layout/hedar.ejs') %>
+<div class="container mt-5">
+  <h1>Welcome to the Food App</h1>
+  <p>menu food</p>
+  <div class="lop d-flex flex-wrap gap-3 justify-content-center">
+    <% if (foods !="") { %>
+         <% foods.forEach((item,index) => { %>
+        <div class="card" style="width: 18rem">
+        <img name="image" src="../uploads/<%= item.image %>" class="card-img-top align-items-center" style="width: 100%; height: 200px; object-fit: cover;  " />
+        <div class="card-body">
+            <h5 name="name" class="card-title"><%= item.name %></h5>
+            <p name="description" class="card-text">
+            <%= item.description %>
+             <br>
+             <p name="price">price: $<%= item.price %></p>
+            </p>
+          
+        </div>
+        </div>
+        <% }) %>
+    <% } else {%>
+                    <h1 class="text-center mt-4">No foods found.</h1>
+                <% } %>
+
+   
+  </div>
+</div>
+
+<%- include('./layout/footr.ejs') %>
